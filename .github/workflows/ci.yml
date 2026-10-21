@@ -1,0 +1,54 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    services:
+      postgres:
+        image: pgvector/pgvector:0.8.1-pg16
+        env:
+          POSTGRES_USER: rag
+          POSTGRES_PASSWORD: rag
+          POSTGRES_DB: rag_test
+        ports: ["5432:5432"]
+        options: >-
+          --health-cmd "pg_isready -U rag -d rag_test"
+          --health-interval 2s --health-timeout 3s --health-retries 30
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+      - run: pip install -r requirements.txt && pip install --no-deps -e . && pip install pytest==8.4.2 ruff==0.14.0 mypy==1.18.2
+      - run: ruff check . && ruff format --check .
+      - run: mypy src
+      - run: pytest -q
+        env:
+          TEST_DATABASE_URL: postgresql://rag:rag@localhost:5432/rag_test
+
+  docker:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Build and start (as in the README)
+        run: docker compose up -d --build --wait
+      - name: Ingest a file through the mounted /data folder
+        run: |
+          cp README.md data/README.md
+          docker exec aiven-rag-mcp rag-mcp ingest /data/README.md
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install mcp==2.3.0
+      - name: Claude Code config (stdio via docker exec)
+        run: python scripts/smoke_test.py .mcp.json --query "How is the database schema created?"
+      - name: Cursor config (Streamable HTTP)
+        run: python scripts/smoke_test.py .cursor/mcp.json --query "How do I connect Cursor?"
+      - if: failure()
+        run: docker compose logs
