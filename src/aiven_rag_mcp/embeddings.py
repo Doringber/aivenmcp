@@ -102,6 +102,7 @@ class FastEmbedEmbedder:
         query_prefix: str = "",
         batch_size: int = 32,
         threads: Optional[int] = None,
+        max_concurrency: int = 1,
     ) -> None:
         dim = known_dimension(model_name)
         if dim is None:
@@ -119,6 +120,7 @@ class FastEmbedEmbedder:
         self._model: Any = None
         self._tokenizer: Any = None
         self._lock = threading.Lock()
+        self._gate = threading.BoundedSemaphore(max_concurrency)
 
     @classmethod
     def from_settings(cls, settings: Settings) -> FastEmbedEmbedder:
@@ -129,6 +131,7 @@ class FastEmbedEmbedder:
             query_prefix=settings.query_prefix,
             batch_size=settings.embed_batch_size,
             threads=settings.embed_threads,
+            max_concurrency=settings.inference_concurrency,
         )
 
     @property
@@ -179,11 +182,14 @@ class FastEmbedEmbedder:
         if not texts:
             return []
         model = self.load()
-        return [vector.tolist() for vector in model.embed(list(texts), batch_size=self._batch_size)]
+        with self._gate:
+            vectors = model.embed(list(texts), batch_size=self._batch_size)
+            return [vector.tolist() for vector in vectors]
 
     def embed_query(self, text: str) -> list[float]:
         model = self.load()
-        vector = next(iter(model.embed([self._query_prefix + text])))
+        with self._gate:
+            vector = next(iter(model.embed([self._query_prefix + text])))
         return list(vector.tolist())
 
 
@@ -201,6 +207,7 @@ class FastEmbedReranker:
         model_path: Optional[Path] = None,
         cache_dir: Optional[Path] = None,
         threads: Optional[int] = None,
+        max_concurrency: int = 1,
     ) -> None:
         self._model_name = model_name
         self._model_path = model_path
@@ -208,6 +215,7 @@ class FastEmbedReranker:
         self._threads = threads
         self._model: Any = None
         self._lock = threading.Lock()
+        self._gate = threading.BoundedSemaphore(max_concurrency)
 
     @classmethod
     def from_settings(cls, settings: Settings) -> Optional[FastEmbedReranker]:
@@ -218,6 +226,7 @@ class FastEmbedReranker:
             model_path=settings.reranker_model_path,
             cache_dir=settings.model_cache_dir,
             threads=settings.embed_threads,
+            max_concurrency=settings.inference_concurrency,
         )
 
     def load(self) -> Any:
@@ -243,7 +252,9 @@ class FastEmbedReranker:
     def score(self, query: str, documents: Sequence[str]) -> list[float]:
         if not documents:
             return []
-        return [float(s) for s in self.load().rerank(query, list(documents), batch_size=32)]
+        model = self.load()
+        with self._gate:
+            return [float(s) for s in model.rerank(query, list(documents), batch_size=32)]
 
 
 def download_models(settings: Optional[Settings] = None) -> list[str]:

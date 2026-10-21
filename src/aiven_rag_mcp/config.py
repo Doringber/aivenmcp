@@ -29,6 +29,9 @@ class Settings(BaseSettings):
     query_prefix: str = BGE_QUERY_PREFIX
     embed_batch_size: int = Field(default=32, ge=1)
     embed_threads: Optional[int] = Field(default=None, ge=1)
+    inference_concurrency: int = Field(default=1, ge=1)
+    """Concurrent ONNX runs per model. Each run already uses every core, so more only adds
+    memory (each in-flight run keeps its own activation buffers), not throughput."""
 
     reranker_model: Optional[str] = "Xenova/ms-marco-MiniLM-L-6-v2"
     """Cross-encoder applied to the top candidates. Set to an empty string to disable."""
