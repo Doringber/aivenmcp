@@ -186,3 +186,14 @@ class TestSchema:
                 migrate(pool, embedding_model="model-b", embedding_dim=16)
         finally:
             pool.close()
+
+    def test_survives_database_restart(self, service: RagService, clean_database: str) -> None:
+        """A Postgres restart kills every pooled connection; the next call must still work."""
+        service.ingest(text="Pooled connections must be revalidated.", source_id="note")
+        with psycopg.connect(clean_database, autocommit=True) as admin:
+            admin.execute(
+                "SELECT pg_terminate_backend(pid) FROM pg_stat_activity "
+                "WHERE datname = current_database() AND pid <> pg_backend_pid()"
+            )
+        assert service.list_sources().total_sources == 1
+        assert service.search("revalidated", k=1).results

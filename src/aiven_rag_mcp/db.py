@@ -28,6 +28,10 @@ def create_pool(database_url: str, *, max_size: int, open_timeout: float = 30.0)
         min_size=1,
         max_size=max_size,
         configure=_configure_connection,
+        # Validate on checkout: after a database restart every pooled connection is dead,
+        # and without this the next call on each one fails.
+        check=ConnectionPool.check_connection,
+        timeout=10.0,
         open=False,
         name="rag",
     )

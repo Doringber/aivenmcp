@@ -2,13 +2,14 @@
 
 from __future__ import annotations
 
-from collections.abc import Sequence
+from collections.abc import Iterator, Sequence
+from contextlib import contextmanager
 from typing import Any, Literal, Optional
 
 import psycopg
 from psycopg import sql
 from psycopg.types.json import Jsonb
-from psycopg_pool import ConnectionPool
+from psycopg_pool import ConnectionPool, PoolTimeout
 
 from aiven_rag_mcp.errors import StorageError
 from aiven_rag_mcp.models import (
@@ -60,8 +61,18 @@ class PgStore:
     def close(self) -> None:
         self._pool.close()
 
+    @contextmanager
+    def _connection(self) -> Iterator[psycopg.Connection[Any]]:
+        try:
+            with self._pool.connection() as conn:
+                yield conn
+        except PoolTimeout as exc:
+            raise StorageError(f"Cannot connect to PostgreSQL: {exc}") from exc
+        except psycopg.OperationalError as exc:
+            raise StorageError(f"Database error: {exc}") from exc
+
     def content_hash(self, uri: str) -> Optional[str]:
-        with self._pool.connection() as conn:
+        with self._connection() as conn:
             row = conn.execute("SELECT content_hash FROM sources WHERE uri = %s", (uri,)).fetchone()
         return None if row is None else str(row[0])
 
@@ -76,7 +87,7 @@ class PgStore:
         if len(chunks) != len(vectors):
             raise ValueError("chunks and vectors must have the same length")
         try:
-            with self._pool.connection() as conn, conn.transaction():
+            with self._connection() as conn, conn.transaction():
                 row = conn.execute(
                     """
                     INSERT INTO sources (uri, collection, kind, title, web_url, content_hash,
@@ -188,7 +199,7 @@ class PgStore:
             LIMIT %(k)s"""
         ).format(ctes=sql.SQL(", ").join(ctes), branches=sql.SQL(" UNION ALL ").join(branches))
         try:
-            with self._pool.connection() as conn, conn.transaction():
+            with self._connection() as conn, conn.transaction():
                 conn.execute(
                     "SELECT set_config('hnsw.ef_search', %s, true)",
                     (str(max(ef_search, candidates)),),
@@ -223,7 +234,7 @@ class PgStore:
     ) -> SourceListing:
         where, params = _filters(collection, uri_prefix)
         params |= {"limit": limit, "offset": offset}
-        with self._pool.connection() as conn:
+        with self._connection() as conn:
             summaries = conn.execute(
                 sql.SQL(
                     "SELECT s.collection, count(*), coalesce(sum(s.chunk_count), 0) FROM sources s"
@@ -289,14 +300,14 @@ class PgStore:
             "WITH d AS (DELETE FROM sources WHERE {where} RETURNING chunk_count)"
             " SELECT count(*), coalesce(sum(chunk_count), 0) FROM d"
         ).format(where=sql.SQL(" AND ").join(clauses))
-        with self._pool.connection() as conn:
+        with self._connection() as conn:
             row = conn.execute(query, params).fetchone()
         assert row is not None
         return int(row[0]), int(row[1])
 
     def prune(self, collection: str, keep_uris: Sequence[str]) -> int:
         """Delete sources of ``collection`` that were not seen in the latest full ingest."""
-        with self._pool.connection() as conn:
+        with self._connection() as conn:
             cur = conn.execute(
                 "DELETE FROM sources WHERE collection = %s AND NOT (uri = ANY(%s))",
                 (collection, list(keep_uris)),
