@@ -1,0 +1,25 @@
+---
+description: Conventions for the aiven_rag_mcp Python package and its tests
+globs: src/**/*.py, tests/**/*.py, scripts/**/*.py
+alwaysApply: false
+---
+
+# Code conventions
+
+- Python 3.12, `from __future__ import annotations`, full type hints. Use
+  `Optional[X]` rather than `X | None`, and `TypeVar` for generics (ruff UP007 /
+  UP045 / UP047 are disabled on purpose).
+- Layering: `server.py` (MCP tools) and `cli.py` stay thin and call `RagService`
+  in `service.py`. SQL lives only in `store.py` and `db.py`.
+- Raise subclasses of `RagError` (`errors.py`) for expected failures. The MCP layer
+  turns them into tool errors, so their messages must be readable by an end user.
+- Never write to stdout from library code: in stdio mode stdout is the MCP
+  JSON-RPC stream. Log through `logging` (configured to stderr).
+- Schema changes go in a new `src/aiven_rag_mcp/migrations/NNN_*.sql` file. Never
+  edit an applied migration.
+- Changing chunking or embedding text must bump `CHUNKER_VERSION` in
+  `service.py`, so re-ingest replaces stale chunks.
+- Tests: shared fakes and fixtures live in `tests/support/` and `tests/conftest.py`.
+  Database tests need `TEST_DATABASE_URL` and are skipped without it. Unit tests
+  must not download models; use `HashingEmbedder` and `WordCounter`.
+- Before committing: `ruff check . && ruff format --check . && mypy src && pytest`.

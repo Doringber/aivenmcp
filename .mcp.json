@@ -1,0 +1,10 @@
+{
+  "mcpServers": {
+    "aiven-docs": {
+      "type": "stdio",
+      "command": "docker",
+      "args": ["exec", "-i", "aiven-rag-mcp", "rag-mcp", "serve"],
+      "env": {}
+    }
+  }
+}

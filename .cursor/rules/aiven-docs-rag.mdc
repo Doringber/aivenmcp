@@ -1,0 +1,21 @@
+---
+description: Answer questions about Aiven services (Kafka, PostgreSQL, MySQL, OpenSearch, ClickHouse, Redis/Valkey, Flink, Grafana, M3, Cassandra, the Aiven CLI, Console, Terraform provider or API) from the indexed Aiven documentation via the aiven-docs MCP server.
+alwaysApply: false
+---
+
+# Using the `aiven-docs` MCP server
+
+The `aiven-docs` MCP server indexes the Aiven documentation
+(github.com/aiven/devportal). Ground answers about Aiven in it instead of memory.
+
+- Call `search` before answering. Put exact identifiers in the query when you know
+  them (`max_connections`, `kafka.auto_create_topics_enable`, `avn service create`).
+- Answer only from the returned `content`. Cite the `web_url` (or `source_uri`) of
+  every chunk you used, as a Markdown link.
+- If the results do not contain the answer, search again once or twice with
+  different wording or a narrower `uri_prefix`, e.g.
+  `github.com/aiven/devportal/docs/products/postgresql/`.
+- If it is still not there, say the docs do not cover it. Do not invent parameters,
+  limits or CLI flags.
+- Use `list_sources` to check what is indexed. Only call `ingest` or
+  `delete_source` when the user asks for it.
