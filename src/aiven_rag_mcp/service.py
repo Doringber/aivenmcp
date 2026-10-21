@@ -235,7 +235,9 @@ class RagService:
         limit = min(max(k or self._settings.search_default_k, 1), self._settings.search_max_k)
         use_reranker = rerank and self._reranker is not None
         fetch = max(limit, self._settings.rerank_candidates) if use_reranker else limit
+        started = time.perf_counter()
         vector = self._embedder.embed_query(query) if mode != "keyword" else None
+        embedded = time.perf_counter()
         hits = self._store.search(
             vector,
             query,
@@ -246,6 +248,7 @@ class RagService:
             collection=collection,
             uri_prefix=uri_prefix,
         )
+        retrieved = time.perf_counter()
         if use_reranker and hits:
             assert self._reranker is not None
             scores = self._reranker.score(query, [f"{h.heading}\n\n{h.content}" for h in hits])
@@ -254,6 +257,21 @@ class RagService:
                 hit.model_copy(update={"rank": i + 1, "score": round(score, 4)})
                 for i, (score, hit) in enumerate(ranked)
             ]
+        finished = time.perf_counter()
+        # Query text is not logged: it can contain user data.
+        logger.info(
+            "search mode=%s reranked=%s query_chars=%d results=%d top_score=%s "
+            "embed_ms=%.1f retrieve_ms=%.1f rerank_ms=%.1f total_ms=%.1f",
+            mode,
+            use_reranker,
+            len(query),
+            len(hits),
+            hits[0].score if hits else None,
+            (embedded - started) * 1000,
+            (retrieved - embedded) * 1000,
+            (finished - retrieved) * 1000,
+            (finished - started) * 1000,
+        )
         return SearchResponse(query=query, mode=mode, reranked=use_reranker, results=hits)
 
     def list_sources(
