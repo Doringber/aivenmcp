@@ -250,9 +250,10 @@ python3.12 -m venv .venv && .venv/bin/pip install -e '.[dev]'
 
 # Everything, against a throwaway pgvector database (the tests drop and recreate tables,
 # so never point TEST_DATABASE_URL at a database you care about):
-docker run -d --name rag-test-db -p 5433:5432 \
-  -e POSTGRES_USER=rag -e POSTGRES_PASSWORD=rag -e POSTGRES_DB=rag_test pgvector/pgvector:0.8.1-pg16
-TEST_DATABASE_URL=postgresql://rag:rag@localhost:5433/rag_test .venv/bin/pytest
+export PGPASSWORD=$(openssl rand -hex 16)
+docker run -d --name rag-test-db -p 127.0.0.1:5433:5432 \
+  -e POSTGRES_USER=rag -e POSTGRES_PASSWORD="$PGPASSWORD" -e POSTGRES_DB=rag_test pgvector/pgvector:0.8.1-pg16
+TEST_DATABASE_URL=postgresql://rag@localhost:5433/rag_test .venv/bin/pytest
 ```
 
 The tests use a deterministic hashing embedder, so they never download models. Each

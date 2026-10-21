@@ -13,7 +13,8 @@ jobs:
         image: pgvector/pgvector:0.8.1-pg16
         env:
           POSTGRES_USER: rag
-          POSTGRES_PASSWORD: rag
+          # Throwaway service container, reachable only from this job.
+          POSTGRES_HOST_AUTH_METHOD: trust
           POSTGRES_DB: rag_test
         ports: ["5432:5432"]
         options: >-
@@ -30,7 +31,7 @@ jobs:
       - run: mypy src
       - run: pytest -q
         env:
-          TEST_DATABASE_URL: postgresql://rag:rag@localhost:5432/rag_test
+          TEST_DATABASE_URL: postgresql://rag@localhost:5432/rag_test
 
   docker:
     runs-on: ubuntu-latest

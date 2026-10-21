@@ -8,7 +8,7 @@ and recall@10 of the HNSW index against an exact scan.
 Only the vector part of search is measured; full-text and reranking are not included.
 
 Usage:
-    DATABASE_URL=postgresql://rag:rag@localhost:5432/rag \
+    DATABASE_URL=postgresql://rag@localhost:5432/rag PGPASSWORD=... \
         python scripts/scale_test.py --rows 100000 300000 1000000
 """
 
@@ -110,7 +110,7 @@ def main() -> None:
     parser.add_argument("--ef-search", type=int, default=100)
     parser.add_argument("--output", type=Path)
     args = parser.parse_args()
-    url = os.environ.get("DATABASE_URL", "postgresql://rag:rag@localhost:5432/rag")
+    url = os.environ.get("DATABASE_URL", "postgresql://rag@localhost:5432/rag")
     results = []
     with psycopg.connect(url, autocommit=True) as conn:
         for rows in args.rows:
