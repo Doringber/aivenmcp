@@ -126,9 +126,10 @@ their own documents, code clarity, honesty about limits, quality of reasoning.
 
 ## 4. Assumptions (also listed in the README)
 1. "Whole repo" means every `.md`, `.mdx`, `.rst` and `.txt` file in
-   `aiven/devportal`, including `includes/` fragments. RST `include::`
-   directives are not expanded; included files are indexed as their own
-   sources, so their content is still searchable.
+   `aiven/devportal`. RST `include::` directives are expanded inline (confined
+   to the repo, depth 3). Fragments that are included elsewhere are not indexed
+   on their own, so the page that renders them is what gets returned. This
+   raised hybrid MRR from 0.78 to about 0.82 on the eval set.
 2. Markup is kept mostly as-is. RST and Markdown syntax costs a few tokens but
    keeps code blocks and tables readable in answers.
 3. English-only content, so Postgres full-text uses the `english` config.

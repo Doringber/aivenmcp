@@ -21,7 +21,7 @@ RAG MCP server over the Aiven documentation. Python package `aiven_rag_mcp` in
 ```bash
 python3.12 -m venv .venv && .venv/bin/pip install -e '.[dev]'
 .venv/bin/ruff check . && .venv/bin/ruff format --check . && .venv/bin/mypy src
-TEST_DATABASE_URL=postgresql://rag:rag@localhost:5432/rag_test .venv/bin/pytest
+TEST_DATABASE_URL=postgresql://rag:rag@localhost:5433/rag_test .venv/bin/pytest  # throwaway DB, see README
 docker compose up -d --build          # Postgres + server (HTTP on localhost:8000/mcp)
 python scripts/smoke_test.py .mcp.json # end-to-end check through a real MCP client
 ```
