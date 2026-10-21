@@ -18,7 +18,7 @@ class Settings(BaseSettings):
     model_config = SettingsConfigDict(env_prefix="RAG_", extra="ignore", populate_by_name=True)
 
     database_url: str = Field(
-        default="postgresql://rag:rag@localhost:5432/rag",
+        default="postgresql://rag@localhost:5432/rag",
         validation_alias=AliasChoices("DATABASE_URL", "RAG_DATABASE_URL"),
     )
     db_pool_max_size: int = Field(default=8, ge=1)

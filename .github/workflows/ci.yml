@@ -37,7 +37,9 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - name: Build and start (as in the README)
-        run: docker compose up -d --build --wait
+        run: |
+          echo "POSTGRES_PASSWORD=$(openssl rand -hex 16)" > .env
+          docker compose up -d --build --wait
       - name: Ingest a file through the mounted /data folder
         run: |
           cp README.md data/README.md

@@ -25,6 +25,9 @@ Requirements: Docker with Compose v2, about 3 GB of free disk, internet access f
 ```bash
 git clone <this repo> aiven-rag-mcp && cd aiven-rag-mcp
 
+# 0. Generate a database password into .env (gitignored; compose reads it automatically).
+echo "POSTGRES_PASSWORD=$(openssl rand -hex 16)" > .env
+
 # 1. Build the image (downloads Python deps and the two models, ~3-5 min) and start Postgres + server.
 docker compose up -d --build
 
@@ -198,8 +201,8 @@ All settings are environment variables with working defaults. Set them under
 
 | Variable | Default | Meaning |
 |---|---|---|
-| `DATABASE_URL` | `postgresql://rag:rag@db:5432/rag` (compose) | Postgres connection string. |
-| `POSTGRES_PASSWORD` | `rag` | Used by compose for both containers. |
+| `DATABASE_URL` | `postgresql://rag@db:5432/rag` (compose) | Postgres connection string. Standard libpq variables such as `PGPASSWORD` also apply. |
+| `POSTGRES_PASSWORD` | none (required) | Read by compose from `.env`. It sets the database password and is passed to the server as `PGPASSWORD`. It is fixed when the volume is first created, so keep `.env` (or run `docker compose down -v` to start over). |
 | `RAG_EMBEDDING_MODEL` | `Xenova/bge-small-en-v1.5` | fastembed model name. Changing it requires a fresh database (see above). |
 | `RAG_RERANKER_MODEL` | `Xenova/ms-marco-MiniLM-L-6-v2` | Cross-encoder for the top candidates. Empty string disables reranking (≈30 ms instead of ≈600 ms per search). |
 | `RAG_RERANK_CANDIDATES` | `20` | How many fused candidates are reranked. 10: MRR 0.86 / 280 ms; 20: 0.89 / 550 ms; 30: 0.91 / 900 ms. |
@@ -304,6 +307,8 @@ a real MCP client) and `scripts/scale_test.py` (HNSW at 100k–1M chunks). Resul
 | Symptom | Fix |
 |---|---|
 | `Error: No such container: aiven-rag-mcp` in Claude | Run `docker compose up -d` first. The stdio command attaches to the running container. |
+| `POSTGRES_PASSWORD is not set` from compose | Run step 0 of the quickstart to create `.env`. |
+| `password authentication failed` | `.env` changed after the volume was created. Restore the old password, or run `docker compose down -v` to recreate the database. |
 | Tool error "Cannot connect to PostgreSQL" | `docker compose ps`. The `db` service must be healthy. |
 | "The database was built with embedding model ..." | The database was created with a different model. Run `docker compose down -v` to start fresh, or restore the old setting. |
 | Cursor shows the server red | `curl -s -o /dev/null -w '%{http_code}' localhost:8000/mcp` should print `400` (the server is up, the request just is not MCP). Otherwise check `docker compose ps` and that port 8000 is free. |
