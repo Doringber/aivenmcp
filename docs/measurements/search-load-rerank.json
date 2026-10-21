@@ -1,0 +1,29 @@
+[
+  {
+    "concurrency": 1,
+    "requests": 48,
+    "p50_ms": 603.4,
+    "p95_ms": 720.2,
+    "p99_ms": 750.5,
+    "max_ms": 750.5,
+    "throughput_rps": 1.59
+  },
+  {
+    "concurrency": 4,
+    "requests": 48,
+    "p50_ms": 2419.4,
+    "p95_ms": 2525.6,
+    "p99_ms": 2604.3,
+    "max_ms": 2604.3,
+    "throughput_rps": 1.52
+  },
+  {
+    "concurrency": 16,
+    "requests": 48,
+    "p50_ms": 9845.1,
+    "p95_ms": 10788.4,
+    "p99_ms": 10918.9,
+    "max_ms": 10918.9,
+    "throughput_rps": 1.19
+  }
+]

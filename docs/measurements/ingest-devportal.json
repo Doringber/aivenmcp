@@ -1,0 +1,18 @@
+{
+  "added": 817,
+  "updated": 0,
+  "unchanged": 0,
+  "empty": 0,
+  "pruned": 817,
+  "failed": [],
+  "chunks_written": 3328,
+  "seconds": 178.146,
+  "sources": [
+    "github.com/aiven/devportal/CODE_OF_CONDUCT.md",
+    "github.com/aiven/devportal/CONTRIBUTING.rst",
+    "github.com/aiven/devportal/README.md",
+    "github.com/aiven/devportal/REVIEWING.rst",
+    "github.com/aiven/devportal/SECURITY.md",
+    "..."
+  ]
+}

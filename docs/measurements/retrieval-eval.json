@@ -1,0 +1,954 @@
+[
+  {
+    "mode": "vector",
+    "rerank": false,
+    "questions": 32,
+    "hit_at_1": 0.75,
+    "hit_at_3": 0.906,
+    "hit_at_5": 0.906,
+    "mrr_at_10": 0.832,
+    "answer_in_top5": 0.938,
+    "latency_p50_ms": 6.8,
+    "latency_p95_ms": 8.5,
+    "results": [
+      {
+        "id": "pg-max-connections",
+        "rank": 1,
+        "answer_in_top5": true,
+        "top_source": "github.com/aiven/devportal/docs/products/postgresql/reference/pg-connection-limits.rst",
+        "latency_ms": 638.6
+      },
+      {
+        "id": "pg-max-connections-hobbyist",
+        "rank": 1,
+        "answer_in_top5": true,
+        "top_source": "github.com/aiven/devportal/docs/products/postgresql/reference/pg-connection-limits.rst",
+        "latency_ms": 8.5
+      },
+      {
+        "id": "mysql-extra-connection",
+        "rank": 1,
+        "answer_in_top5": true,
+        "top_source": "github.com/aiven/devportal/docs/products/mysql/concepts/max-number-of-connections.rst",
+        "latency_ms": 8.1
+      },
+      {
+        "id": "kafka-auto-create-topics",
+        "rank": 1,
+        "answer_in_top5": true,
+        "top_source": "github.com/aiven/devportal/docs/products/kafka/howto/create-topics-automatically.rst",
+        "latency_ms": 8.1
+      },
+      {
+        "id": "kafka-min-insync",
+        "rank": 2,
+        "answer_in_top5": true,
+        "top_source": "github.com/aiven/devportal/docs/products/kafka/howto/best-practices.rst",
+        "latency_ms": 8.3
+      },
+      {
+        "id": "redis-eviction-param",
+        "rank": 1,
+        "answer_in_top5": true,
+        "top_source": "github.com/aiven/devportal/docs/products/redis/concepts/memory-usage.rst",
+        "latency_ms": 7.8
+      },
+      {
+        "id": "mysql-time-zone",
+        "rank": 1,
+        "answer_in_top5": true,
+        "top_source": "github.com/aiven/devportal/docs/products/mysql/reference/advanced-params.rst",
+        "latency_ms": 9.0
+      },
+      {
+        "id": "pg-backup-hour",
+        "rank": 1,
+        "answer_in_top5": true,
+        "top_source": "github.com/aiven/devportal/docs/products/postgresql/concepts/pg-backups.rst",
+        "latency_ms": 6.8
+      },
+      {
+        "id": "pg-admin-username",
+        "rank": 1,
+        "answer_in_top5": true,
+        "top_source": "github.com/aiven/devportal/docs/products/postgresql/reference/advanced-params.rst",
+        "latency_ms": 7.1
+      },
+      {
+        "id": "os-flood-stage",
+        "rank": 3,
+        "answer_in_top5": true,
+        "top_source": "github.com/aiven/devportal/docs/products/opensearch/concepts/indices.rst",
+        "latency_ms": 6.9
+      },
+      {
+        "id": "os-low-watermark",
+        "rank": 1,
+        "answer_in_top5": true,
+        "top_source": "github.com/aiven/devportal/docs/products/opensearch/reference/low-space-watermarks.rst",
+        "latency_ms": 6.7
+      },
+      {
+        "id": "os-plugins-knn",
+        "rank": 1,
+        "answer_in_top5": true,
+        "top_source": "github.com/aiven/devportal/docs/products/opensearch/reference/plugins.rst",
+        "latency_ms": 6.9
+      },
+      {
+        "id": "clickhouse-backups",
+        "rank": 8,
+        "answer_in_top5": false,
+        "top_source": "github.com/aiven/devportal/docs/platform/concepts/service_backups.rst",
+        "latency_ms": 8.0
+      },
+      {
+        "id": "clickhouse-integrations",
+        "rank": 6,
+        "answer_in_top5": true,
+        "top_source": "github.com/aiven/devportal/docs/products/clickhouse/howto/list-integrations.rst",
+        "latency_ms": 5.8
+      },
+      {
+        "id": "clickhouse-log-engine",
+        "rank": 1,
+        "answer_in_top5": true,
+        "top_source": "github.com/aiven/devportal/docs/products/clickhouse/reference/supported-table-engines.rst",
+        "latency_ms": 6.0
+      },
+      {
+        "id": "password-min-length",
+        "rank": 1,
+        "answer_in_top5": true,
+        "top_source": "github.com/aiven/devportal/docs/platform/reference/password-policy.rst",
+        "latency_ms": 6.7
+      },
+      {
+        "id": "powered-off-cleanup",
+        "rank": 2,
+        "answer_in_top5": true,
+        "top_source": "github.com/aiven/devportal/docs/platform/howto/cleanup-powered-off-services.rst",
+        "latency_ms": 6.6
+      },
+      {
+        "id": "deleted-backups",
+        "rank": 2,
+        "answer_in_top5": true,
+        "top_source": "github.com/aiven/devportal/docs/platform/howto/recover-a-deleted-service.rst",
+        "latency_ms": 6.8
+      },
+      {
+        "id": "kafka-power-off-data",
+        "rank": 1,
+        "answer_in_top5": true,
+        "top_source": "github.com/aiven/devportal/docs/platform/concepts/service-power-cycle.rst",
+        "latency_ms": 7.0
+      },
+      {
+        "id": "free-plan-services",
+        "rank": 1,
+        "answer_in_top5": true,
+        "top_source": "github.com/aiven/devportal/docs/platform/concepts/free-plan.rst",
+        "latency_ms": 6.5
+      },
+      {
+        "id": "free-plan-disk",
+        "rank": 3,
+        "answer_in_top5": true,
+        "top_source": "github.com/aiven/devportal/docs/products/postgresql/howto/prevent-full-disk.rst",
+        "latency_ms": 6.4
+      },
+      {
+        "id": "free-trial-credits",
+        "rank": 1,
+        "answer_in_top5": true,
+        "top_source": "github.com/aiven/devportal/docs/platform/concepts/free-trial.rst",
+        "latency_ms": 6.2
+      },
+      {
+        "id": "token-limit",
+        "rank": 1,
+        "answer_in_top5": true,
+        "top_source": "github.com/aiven/devportal/docs/platform/concepts/authentication-tokens.rst",
+        "latency_ms": 6.8
+      },
+      {
+        "id": "dds-services",
+        "rank": 1,
+        "answer_in_top5": true,
+        "top_source": "github.com/aiven/devportal/docs/platform/concepts/dynamic-disk-sizing.rst",
+        "latency_ms": 5.7
+      },
+      {
+        "id": "pgvector-min-version",
+        "rank": 1,
+        "answer_in_top5": true,
+        "top_source": "github.com/aiven/devportal/docs/products/postgresql/howto/use-pgvector.rst",
+        "latency_ms": 6.4
+      },
+      {
+        "id": "service-hostname",
+        "rank": 1,
+        "answer_in_top5": true,
+        "top_source": "github.com/aiven/devportal/docs/platform/reference/service-ip-address.rst",
+        "latency_ms": 6.5
+      },
+      {
+        "id": "maintenance-downtime",
+        "rank": 6,
+        "answer_in_top5": false,
+        "top_source": "github.com/aiven/devportal/docs/products/postgresql/howto/upgrade.rst",
+        "latency_ms": 6.8
+      },
+      {
+        "id": "kafka-oidc-prereqs",
+        "rank": 1,
+        "answer_in_top5": true,
+        "top_source": "github.com/aiven/devportal/docs/products/kafka/howto/enable-oidc.rst",
+        "latency_ms": 6.8
+      },
+      {
+        "id": "kafka-active-segment",
+        "rank": 1,
+        "answer_in_top5": true,
+        "top_source": "github.com/aiven/devportal/docs/products/kafka/concepts/partition-segments.rst",
+        "latency_ms": 6.2
+      },
+      {
+        "id": "static-ip-cost",
+        "rank": 1,
+        "answer_in_top5": true,
+        "top_source": "github.com/aiven/devportal/docs/platform/concepts/static-ips.rst",
+        "latency_ms": 5.7
+      },
+      {
+        "id": "pg-shared-buffers",
+        "rank": 1,
+        "answer_in_top5": true,
+        "top_source": "github.com/aiven/devportal/docs/products/postgresql/concepts/pg-shared-buffers.rst",
+        "latency_ms": 6.6
+      },
+      {
+        "id": "consumer-lag-predictor",
+        "rank": 1,
+        "answer_in_top5": true,
+        "top_source": "github.com/aiven/devportal/docs/products/kafka/concepts/consumer-lag-predictor.rst",
+        "latency_ms": 7.0
+      }
+    ]
+  },
+  {
+    "mode": "keyword",
+    "rerank": false,
+    "questions": 32,
+    "hit_at_1": 0.312,
+    "hit_at_3": 0.531,
+    "hit_at_5": 0.719,
+    "mrr_at_10": 0.479,
+    "answer_in_top5": 0.625,
+    "latency_p50_ms": 18.4,
+    "latency_p95_ms": 29.0,
+    "results": [
+      {
+        "id": "pg-max-connections",
+        "rank": 5,
+        "answer_in_top5": true,
+        "top_source": "github.com/aiven/devportal/docs/products/kafka/kafka-connect/reference/connect-metrics-prometheus.rst",
+        "latency_ms": 19.7
+      },
+      {
+        "id": "pg-max-connections-hobbyist",
+        "rank": 6,
+        "answer_in_top5": false,
+        "top_source": "github.com/aiven/devportal/docs/platform/howto/use-google-private-service-connect.rst",
+        "latency_ms": 16.9
+      },
+      {
+        "id": "mysql-extra-connection",
+        "rank": 5,
+        "answer_in_top5": true,
+        "top_source": "github.com/aiven/devportal/docs/products/cassandra/reference/cassandra-metrics-prometheus.rst",
+        "latency_ms": 12.8
+      },
+      {
+        "id": "kafka-auto-create-topics",
+        "rank": 2,
+        "answer_in_top5": true,
+        "top_source": "github.com/aiven/devportal/docs/products/kafka/howto/create-topic.rst",
+        "latency_ms": 25.4
+      },
+      {
+        "id": "kafka-min-insync",
+        "rank": 10,
+        "answer_in_top5": false,
+        "top_source": "github.com/aiven/devportal/docs/products/kafka/kafka-mirrormaker/howto/setup-replication-flow.rst",
+        "latency_ms": 26.2
+      },
+      {
+        "id": "redis-eviction-param",
+        "rank": 1,
+        "answer_in_top5": true,
+        "top_source": "github.com/aiven/devportal/docs/products/redis/reference/advanced-params.rst",
+        "latency_ms": 16.0
+      },
+      {
+        "id": "mysql-time-zone",
+        "rank": 5,
+        "answer_in_top5": true,
+        "top_source": "github.com/aiven/devportal/docs/products/clickhouse/howto/data-service-integration.rst",
+        "latency_ms": 29.0
+      },
+      {
+        "id": "pg-backup-hour",
+        "rank": 1,
+        "answer_in_top5": true,
+        "top_source": "github.com/aiven/devportal/docs/products/postgresql/concepts/pg-backups.rst",
+        "latency_ms": 10.9
+      },
+      {
+        "id": "pg-admin-username",
+        "rank": null,
+        "answer_in_top5": false,
+        "top_source": "github.com/aiven/devportal/docs/products/postgresql/howto/datasource-integration.rst",
+        "latency_ms": 23.0
+      },
+      {
+        "id": "os-flood-stage",
+        "rank": 6,
+        "answer_in_top5": false,
+        "top_source": "github.com/aiven/devportal/docs/products/cassandra/reference/cassandra-metrics-prometheus.rst",
+        "latency_ms": 14.6
+      },
+      {
+        "id": "os-low-watermark",
+        "rank": 1,
+        "answer_in_top5": true,
+        "top_source": "github.com/aiven/devportal/docs/products/opensearch/reference/low-space-watermarks.rst",
+        "latency_ms": 10.2
+      },
+      {
+        "id": "os-plugins-knn",
+        "rank": 7,
+        "answer_in_top5": false,
+        "top_source": "github.com/aiven/devportal/docs/products/opensearch/concepts/os-security.rst",
+        "latency_ms": 32.1
+      },
+      {
+        "id": "clickhouse-backups",
+        "rank": null,
+        "answer_in_top5": false,
+        "top_source": "github.com/aiven/devportal/docs/products/clickhouse/howto/data-service-integration.rst",
+        "latency_ms": 48.8
+      },
+      {
+        "id": "clickhouse-integrations",
+        "rank": 1,
+        "answer_in_top5": true,
+        "top_source": "github.com/aiven/devportal/docs/products/clickhouse/howto/data-service-integration.rst",
+        "latency_ms": 16.8
+      },
+      {
+        "id": "clickhouse-log-engine",
+        "rank": 4,
+        "answer_in_top5": false,
+        "top_source": "github.com/aiven/devportal/docs/products/clickhouse/concepts/service-architecture.rst",
+        "latency_ms": 25.1
+      },
+      {
+        "id": "password-min-length",
+        "rank": 1,
+        "answer_in_top5": true,
+        "top_source": "github.com/aiven/devportal/docs/platform/reference/password-policy.rst",
+        "latency_ms": 18.3
+      },
+      {
+        "id": "powered-off-cleanup",
+        "rank": 2,
+        "answer_in_top5": true,
+        "top_source": "github.com/aiven/devportal/docs/platform/howto/cleanup-powered-off-services.rst",
+        "latency_ms": 22.9
+      },
+      {
+        "id": "deleted-backups",
+        "rank": 1,
+        "answer_in_top5": false,
+        "top_source": "github.com/aiven/devportal/docs/platform/concepts/service_backups.rst",
+        "latency_ms": 12.9
+      },
+      {
+        "id": "kafka-power-off-data",
+        "rank": 9,
+        "answer_in_top5": false,
+        "top_source": "github.com/aiven/devportal/docs/tools/cli/service/topic.rst",
+        "latency_ms": 20.8
+      },
+      {
+        "id": "free-plan-services",
+        "rank": 5,
+        "answer_in_top5": true,
+        "top_source": "github.com/aiven/devportal/docs/products/cassandra/howto/manage-cross-cluster-replication.rst",
+        "latency_ms": 10.4
+      },
+      {
+        "id": "free-plan-disk",
+        "rank": 2,
+        "answer_in_top5": true,
+        "top_source": "github.com/aiven/devportal/docs/integrations/prometheus-system-metrics.rst",
+        "latency_ms": 11.4
+      },
+      {
+        "id": "free-trial-credits",
+        "rank": 2,
+        "answer_in_top5": true,
+        "top_source": "github.com/aiven/devportal/docs/tools/cli/credits.rst",
+        "latency_ms": 2.7
+      },
+      {
+        "id": "token-limit",
+        "rank": 4,
+        "answer_in_top5": false,
+        "top_source": "github.com/aiven/devportal/docs/tools/cli/user.rst",
+        "latency_ms": 18.4
+      },
+      {
+        "id": "dds-services",
+        "rank": 2,
+        "answer_in_top5": true,
+        "top_source": "github.com/aiven/devportal/docs/products/cassandra/howto/manage-cross-cluster-replication.rst",
+        "latency_ms": 22.6
+      },
+      {
+        "id": "pgvector-min-version",
+        "rank": 1,
+        "answer_in_top5": true,
+        "top_source": "github.com/aiven/devportal/docs/products/postgresql/howto/use-pgvector.rst",
+        "latency_ms": 18.4
+      },
+      {
+        "id": "service-hostname",
+        "rank": null,
+        "answer_in_top5": false,
+        "top_source": "github.com/aiven/devportal/docs/platform/howto/use-google-private-service-connect.rst",
+        "latency_ms": 24.8
+      },
+      {
+        "id": "maintenance-downtime",
+        "rank": 3,
+        "answer_in_top5": true,
+        "top_source": "github.com/aiven/devportal/docs/products/postgresql/howto/upgrade.rst",
+        "latency_ms": 5.5
+      },
+      {
+        "id": "kafka-oidc-prereqs",
+        "rank": null,
+        "answer_in_top5": false,
+        "top_source": "github.com/aiven/devportal/docs/products/kafka/kafka-mirrormaker/howto/setup-replication-flow.rst",
+        "latency_ms": 17.6
+      },
+      {
+        "id": "kafka-active-segment",
+        "rank": 1,
+        "answer_in_top5": true,
+        "top_source": "github.com/aiven/devportal/docs/products/kafka/concepts/partition-segments.rst",
+        "latency_ms": 17.9
+      },
+      {
+        "id": "static-ip-cost",
+        "rank": 1,
+        "answer_in_top5": true,
+        "top_source": "github.com/aiven/devportal/docs/platform/howto/static-ip-addresses.rst",
+        "latency_ms": 3.4
+      },
+      {
+        "id": "pg-shared-buffers",
+        "rank": 1,
+        "answer_in_top5": true,
+        "top_source": "github.com/aiven/devportal/docs/products/postgresql/concepts/pg-shared-buffers.rst",
+        "latency_ms": 23.5
+      },
+      {
+        "id": "consumer-lag-predictor",
+        "rank": 2,
+        "answer_in_top5": true,
+        "top_source": "github.com/aiven/devportal/docs/products/kafka/concepts/monitor-consumer-group.rst",
+        "latency_ms": 23.9
+      }
+    ]
+  },
+  {
+    "mode": "hybrid",
+    "rerank": false,
+    "questions": 32,
+    "hit_at_1": 0.719,
+    "hit_at_3": 0.906,
+    "hit_at_5": 0.938,
+    "mrr_at_10": 0.821,
+    "answer_in_top5": 0.875,
+    "latency_p50_ms": 25.5,
+    "latency_p95_ms": 38.2,
+    "results": [
+      {
+        "id": "pg-max-connections",
+        "rank": 1,
+        "answer_in_top5": true,
+        "top_source": "github.com/aiven/devportal/docs/products/postgresql/reference/pg-connection-limits.rst",
+        "latency_ms": 32.4
+      },
+      {
+        "id": "pg-max-connections-hobbyist",
+        "rank": 1,
+        "answer_in_top5": true,
+        "top_source": "github.com/aiven/devportal/docs/products/postgresql/reference/pg-connection-limits.rst",
+        "latency_ms": 25.2
+      },
+      {
+        "id": "mysql-extra-connection",
+        "rank": 1,
+        "answer_in_top5": true,
+        "top_source": "github.com/aiven/devportal/docs/products/mysql/concepts/max-number-of-connections.rst",
+        "latency_ms": 20.4
+      },
+      {
+        "id": "kafka-auto-create-topics",
+        "rank": 1,
+        "answer_in_top5": true,
+        "top_source": "github.com/aiven/devportal/docs/products/kafka/howto/create-topics-automatically.rst",
+        "latency_ms": 31.3
+      },
+      {
+        "id": "kafka-min-insync",
+        "rank": 1,
+        "answer_in_top5": true,
+        "top_source": "github.com/aiven/devportal/docs/products/kafka/reference/advanced-params.rst",
+        "latency_ms": 31.6
+      },
+      {
+        "id": "redis-eviction-param",
+        "rank": 1,
+        "answer_in_top5": true,
+        "top_source": "github.com/aiven/devportal/docs/products/redis/concepts/memory-usage.rst",
+        "latency_ms": 24.8
+      },
+      {
+        "id": "mysql-time-zone",
+        "rank": 1,
+        "answer_in_top5": true,
+        "top_source": "github.com/aiven/devportal/docs/products/mysql/reference/advanced-params.rst",
+        "latency_ms": 36.5
+      },
+      {
+        "id": "pg-backup-hour",
+        "rank": 1,
+        "answer_in_top5": true,
+        "top_source": "github.com/aiven/devportal/docs/products/postgresql/concepts/pg-backups.rst",
+        "latency_ms": 22.2
+      },
+      {
+        "id": "pg-admin-username",
+        "rank": 2,
+        "answer_in_top5": true,
+        "top_source": "github.com/aiven/devportal/docs/tools/cli/service/user.rst",
+        "latency_ms": 27.7
+      },
+      {
+        "id": "os-flood-stage",
+        "rank": 1,
+        "answer_in_top5": true,
+        "top_source": "github.com/aiven/devportal/docs/products/opensearch/reference/low-space-watermarks.rst",
+        "latency_ms": 20.8
+      },
+      {
+        "id": "os-low-watermark",
+        "rank": 1,
+        "answer_in_top5": true,
+        "top_source": "github.com/aiven/devportal/docs/products/opensearch/reference/low-space-watermarks.rst",
+        "latency_ms": 16.4
+      },
+      {
+        "id": "os-plugins-knn",
+        "rank": 2,
+        "answer_in_top5": true,
+        "top_source": "github.com/aiven/devportal/docs/products/opensearch/concepts/os-security.rst",
+        "latency_ms": 43.9
+      },
+      {
+        "id": "clickhouse-backups",
+        "rank": 8,
+        "answer_in_top5": false,
+        "top_source": "github.com/aiven/devportal/docs/products/clickhouse/concepts/service-architecture.rst",
+        "latency_ms": 62.3
+      },
+      {
+        "id": "clickhouse-integrations",
+        "rank": 1,
+        "answer_in_top5": true,
+        "top_source": "github.com/aiven/devportal/docs/products/clickhouse/howto/data-service-integration.rst",
+        "latency_ms": 31.9
+      },
+      {
+        "id": "clickhouse-log-engine",
+        "rank": 1,
+        "answer_in_top5": false,
+        "top_source": "github.com/aiven/devportal/docs/products/clickhouse/reference/supported-table-engines.rst",
+        "latency_ms": 32.0
+      },
+      {
+        "id": "password-min-length",
+        "rank": 1,
+        "answer_in_top5": true,
+        "top_source": "github.com/aiven/devportal/docs/platform/reference/password-policy.rst",
+        "latency_ms": 25.5
+      },
+      {
+        "id": "powered-off-cleanup",
+        "rank": 2,
+        "answer_in_top5": true,
+        "top_source": "github.com/aiven/devportal/docs/platform/howto/cleanup-powered-off-services.rst",
+        "latency_ms": 30.0
+      },
+      {
+        "id": "deleted-backups",
+        "rank": 1,
+        "answer_in_top5": true,
+        "top_source": "github.com/aiven/devportal/docs/platform/concepts/service_backups.rst",
+        "latency_ms": 20.1
+      },
+      {
+        "id": "kafka-power-off-data",
+        "rank": 2,
+        "answer_in_top5": false,
+        "top_source": "github.com/aiven/devportal/docs/tools/cli/service/topic.rst",
+        "latency_ms": 28.5
+      },
+      {
+        "id": "free-plan-services",
+        "rank": 1,
+        "answer_in_top5": true,
+        "top_source": "github.com/aiven/devportal/docs/platform/concepts/free-plan.rst",
+        "latency_ms": 16.7
+      },
+      {
+        "id": "free-plan-disk",
+        "rank": 1,
+        "answer_in_top5": true,
+        "top_source": "github.com/aiven/devportal/docs/platform/concepts/free-plan.rst",
+        "latency_ms": 17.9
+      },
+      {
+        "id": "free-trial-credits",
+        "rank": 1,
+        "answer_in_top5": true,
+        "top_source": "github.com/aiven/devportal/docs/platform/concepts/free-trial.rst",
+        "latency_ms": 8.7
+      },
+      {
+        "id": "token-limit",
+        "rank": 2,
+        "answer_in_top5": true,
+        "top_source": "github.com/aiven/devportal/docs/tools/cli/user/user-access-token.rst",
+        "latency_ms": 25.0
+      },
+      {
+        "id": "dds-services",
+        "rank": 1,
+        "answer_in_top5": true,
+        "top_source": "github.com/aiven/devportal/docs/platform/howto/add-storage-space.rst",
+        "latency_ms": 28.2
+      },
+      {
+        "id": "pgvector-min-version",
+        "rank": 1,
+        "answer_in_top5": true,
+        "top_source": "github.com/aiven/devportal/docs/products/postgresql/howto/use-pgvector.rst",
+        "latency_ms": 24.7
+      },
+      {
+        "id": "service-hostname",
+        "rank": 5,
+        "answer_in_top5": true,
+        "top_source": "github.com/aiven/devportal/docs/products/influxdb/get-started.rst",
+        "latency_ms": 31.0
+      },
+      {
+        "id": "maintenance-downtime",
+        "rank": 3,
+        "answer_in_top5": true,
+        "top_source": "github.com/aiven/devportal/docs/products/postgresql/howto/upgrade.rst",
+        "latency_ms": 12.1
+      },
+      {
+        "id": "kafka-oidc-prereqs",
+        "rank": 9,
+        "answer_in_top5": false,
+        "top_source": "github.com/aiven/devportal/docs/platform/howto/saml/add-identity-providers.rst",
+        "latency_ms": 24.3
+      },
+      {
+        "id": "kafka-active-segment",
+        "rank": 1,
+        "answer_in_top5": true,
+        "top_source": "github.com/aiven/devportal/docs/products/kafka/concepts/partition-segments.rst",
+        "latency_ms": 24.1
+      },
+      {
+        "id": "static-ip-cost",
+        "rank": 1,
+        "answer_in_top5": true,
+        "top_source": "github.com/aiven/devportal/docs/platform/howto/static-ip-addresses.rst",
+        "latency_ms": 8.7
+      },
+      {
+        "id": "pg-shared-buffers",
+        "rank": 1,
+        "answer_in_top5": true,
+        "top_source": "github.com/aiven/devportal/docs/products/postgresql/concepts/pg-shared-buffers.rst",
+        "latency_ms": 30.7
+      },
+      {
+        "id": "consumer-lag-predictor",
+        "rank": 1,
+        "answer_in_top5": true,
+        "top_source": "github.com/aiven/devportal/docs/products/kafka/concepts/consumer-lag-predictor.rst",
+        "latency_ms": 38.2
+      }
+    ]
+  },
+  {
+    "mode": "hybrid",
+    "rerank": true,
+    "questions": 32,
+    "hit_at_1": 0.812,
+    "hit_at_3": 1.0,
+    "hit_at_5": 1.0,
+    "mrr_at_10": 0.891,
+    "answer_in_top5": 1.0,
+    "latency_p50_ms": 551.7,
+    "latency_p95_ms": 637.3,
+    "results": [
+      {
+        "id": "pg-max-connections",
+        "rank": 1,
+        "answer_in_top5": true,
+        "top_source": "github.com/aiven/devportal/docs/products/postgresql/reference/pg-connection-limits.rst",
+        "latency_ms": 835.1
+      },
+      {
+        "id": "pg-max-connections-hobbyist",
+        "rank": 1,
+        "answer_in_top5": true,
+        "top_source": "github.com/aiven/devportal/docs/products/postgresql/reference/pg-connection-limits.rst",
+        "latency_ms": 783.3
+      },
+      {
+        "id": "mysql-extra-connection",
+        "rank": 1,
+        "answer_in_top5": true,
+        "top_source": "github.com/aiven/devportal/docs/products/mysql/concepts/max-number-of-connections.rst",
+        "latency_ms": 551.7
+      },
+      {
+        "id": "kafka-auto-create-topics",
+        "rank": 1,
+        "answer_in_top5": true,
+        "top_source": "github.com/aiven/devportal/docs/products/kafka/howto/create-topics-automatically.rst",
+        "latency_ms": 501.5
+      },
+      {
+        "id": "kafka-min-insync",
+        "rank": 1,
+        "answer_in_top5": true,
+        "top_source": "github.com/aiven/devportal/docs/products/kafka/reference/advanced-params.rst",
+        "latency_ms": 544.2
+      },
+      {
+        "id": "redis-eviction-param",
+        "rank": 1,
+        "answer_in_top5": true,
+        "top_source": "github.com/aiven/devportal/docs/products/redis/concepts/memory-usage.rst",
+        "latency_ms": 621.0
+      },
+      {
+        "id": "mysql-time-zone",
+        "rank": 1,
+        "answer_in_top5": true,
+        "top_source": "github.com/aiven/devportal/docs/products/mysql/reference/advanced-params.rst",
+        "latency_ms": 581.2
+      },
+      {
+        "id": "pg-backup-hour",
+        "rank": 2,
+        "answer_in_top5": true,
+        "top_source": "github.com/aiven/devportal/docs/platform/howto/prepare-for-high-load.rst",
+        "latency_ms": 497.1
+      },
+      {
+        "id": "pg-admin-username",
+        "rank": 1,
+        "answer_in_top5": true,
+        "top_source": "github.com/aiven/devportal/docs/products/postgresql/reference/advanced-params.rst",
+        "latency_ms": 531.8
+      },
+      {
+        "id": "os-flood-stage",
+        "rank": 1,
+        "answer_in_top5": true,
+        "top_source": "github.com/aiven/devportal/docs/products/opensearch/reference/low-space-watermarks.rst",
+        "latency_ms": 544.1
+      },
+      {
+        "id": "os-low-watermark",
+        "rank": 1,
+        "answer_in_top5": true,
+        "top_source": "github.com/aiven/devportal/docs/products/opensearch/reference/low-space-watermarks.rst",
+        "latency_ms": 544.1
+      },
+      {
+        "id": "os-plugins-knn",
+        "rank": 1,
+        "answer_in_top5": true,
+        "top_source": "github.com/aiven/devportal/docs/products/opensearch/reference/plugins.rst",
+        "latency_ms": 533.5
+      },
+      {
+        "id": "clickhouse-backups",
+        "rank": 3,
+        "answer_in_top5": true,
+        "top_source": "github.com/aiven/devportal/docs/platform/concepts/service_backups.rst",
+        "latency_ms": 545.7
+      },
+      {
+        "id": "clickhouse-integrations",
+        "rank": 3,
+        "answer_in_top5": true,
+        "top_source": "github.com/aiven/devportal/docs/products/clickhouse/howto/integrate-postgresql.rst",
+        "latency_ms": 573.6
+      },
+      {
+        "id": "clickhouse-log-engine",
+        "rank": 3,
+        "answer_in_top5": true,
+        "top_source": "github.com/aiven/devportal/docs/products/clickhouse/concepts/service-architecture.rst",
+        "latency_ms": 547.3
+      },
+      {
+        "id": "password-min-length",
+        "rank": 1,
+        "answer_in_top5": true,
+        "top_source": "github.com/aiven/devportal/docs/platform/reference/password-policy.rst",
+        "latency_ms": 525.0
+      },
+      {
+        "id": "powered-off-cleanup",
+        "rank": 1,
+        "answer_in_top5": true,
+        "top_source": "github.com/aiven/devportal/docs/platform/concepts/service_backups.rst",
+        "latency_ms": 556.5
+      },
+      {
+        "id": "deleted-backups",
+        "rank": 1,
+        "answer_in_top5": true,
+        "top_source": "github.com/aiven/devportal/docs/platform/concepts/service_backups.rst",
+        "latency_ms": 567.4
+      },
+      {
+        "id": "kafka-power-off-data",
+        "rank": 1,
+        "answer_in_top5": true,
+        "top_source": "github.com/aiven/devportal/docs/platform/concepts/service-power-cycle.rst",
+        "latency_ms": 585.5
+      },
+      {
+        "id": "free-plan-services",
+        "rank": 1,
+        "answer_in_top5": true,
+        "top_source": "github.com/aiven/devportal/docs/platform/concepts/free-plan.rst",
+        "latency_ms": 581.0
+      },
+      {
+        "id": "free-plan-disk",
+        "rank": 1,
+        "answer_in_top5": true,
+        "top_source": "github.com/aiven/devportal/docs/platform/concepts/free-plan.rst",
+        "latency_ms": 587.6
+      },
+      {
+        "id": "free-trial-credits",
+        "rank": 1,
+        "answer_in_top5": true,
+        "top_source": "github.com/aiven/devportal/docs/platform/concepts/free-plan.rst",
+        "latency_ms": 574.6
+      },
+      {
+        "id": "token-limit",
+        "rank": 1,
+        "answer_in_top5": true,
+        "top_source": "github.com/aiven/devportal/docs/platform/concepts/authentication-tokens.rst",
+        "latency_ms": 509.5
+      },
+      {
+        "id": "dds-services",
+        "rank": 1,
+        "answer_in_top5": true,
+        "top_source": "github.com/aiven/devportal/docs/platform/concepts/dynamic-disk-sizing.rst",
+        "latency_ms": 524.3
+      },
+      {
+        "id": "pgvector-min-version",
+        "rank": 1,
+        "answer_in_top5": true,
+        "top_source": "github.com/aiven/devportal/docs/products/postgresql/howto/use-pgvector.rst",
+        "latency_ms": 578.5
+      },
+      {
+        "id": "service-hostname",
+        "rank": 1,
+        "answer_in_top5": true,
+        "top_source": "github.com/aiven/devportal/docs/platform/reference/service-ip-address.rst",
+        "latency_ms": 532.3
+      },
+      {
+        "id": "maintenance-downtime",
+        "rank": 2,
+        "answer_in_top5": true,
+        "top_source": "github.com/aiven/devportal/docs/products/postgresql/howto/upgrade.rst",
+        "latency_ms": 563.6
+      },
+      {
+        "id": "kafka-oidc-prereqs",
+        "rank": 1,
+        "answer_in_top5": true,
+        "top_source": "github.com/aiven/devportal/docs/products/kafka/howto/enable-oidc.rst",
+        "latency_ms": 595.8
+      },
+      {
+        "id": "kafka-active-segment",
+        "rank": 1,
+        "answer_in_top5": true,
+        "top_source": "github.com/aiven/devportal/docs/products/kafka/concepts/partition-segments.rst",
+        "latency_ms": 637.3
+      },
+      {
+        "id": "static-ip-cost",
+        "rank": 1,
+        "answer_in_top5": true,
+        "top_source": "github.com/aiven/devportal/docs/platform/concepts/static-ips.rst",
+        "latency_ms": 527.7
+      },
+      {
+        "id": "pg-shared-buffers",
+        "rank": 1,
+        "answer_in_top5": true,
+        "top_source": "github.com/aiven/devportal/docs/products/postgresql/concepts/pg-shared-buffers.rst",
+        "latency_ms": 500.4
+      },
+      {
+        "id": "consumer-lag-predictor",
+        "rank": 2,
+        "answer_in_top5": true,
+        "top_source": "github.com/aiven/devportal/docs/products/kafka/howto/enabled-consumer-lag-predictor.rst",
+        "latency_ms": 520.7
+      }
+    ]
+  }
+]

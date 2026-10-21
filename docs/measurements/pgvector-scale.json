@@ -1,0 +1,32 @@
+[
+  {
+    "rows": 100000,
+    "load_s": 2.4,
+    "hnsw_build_s": 6.0,
+    "table_mb": 156,
+    "index_mb": 195,
+    "knn_p50_ms": 1.11,
+    "knn_p95_ms": 1.91,
+    "recall_at_10": 1.0
+  },
+  {
+    "rows": 300000,
+    "load_s": 5.4,
+    "hnsw_build_s": 17.5,
+    "table_mb": 469,
+    "index_mb": 586,
+    "knn_p50_ms": 1.94,
+    "knn_p95_ms": 5.21,
+    "recall_at_10": 1.0
+  },
+  {
+    "rows": 1000000,
+    "load_s": 17.8,
+    "hnsw_build_s": 275.8,
+    "table_mb": 1563,
+    "index_mb": 1953,
+    "knn_p50_ms": 1.59,
+    "knn_p95_ms": 5.15,
+    "recall_at_10": 1.0
+  }
+]
