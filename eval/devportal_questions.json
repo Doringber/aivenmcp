@@ -1,0 +1,276 @@
+{
+  "description": "Questions whose answers live in specific pages of github.com/aiven/devportal. A hit counts when a returned chunk comes from any of the expected files. Questions are paraphrased on purpose so they do not copy the page wording.",
+  "questions": [
+    {
+      "id": "pg-max-connections",
+      "question": "How many connections can I open to a PostgreSQL Startup-8 plan?",
+      "expected": [
+        "docs/products/postgresql/reference/pg-connection-limits.rst"
+      ],
+      "answer_contains": "200"
+    },
+    {
+      "id": "pg-max-connections-hobbyist",
+      "question": "What is the max_connections value on the PostgreSQL hobbyist plan?",
+      "expected": [
+        "docs/products/postgresql/reference/pg-connection-limits.rst"
+      ],
+      "answer_contains": "25"
+    },
+    {
+      "id": "mysql-extra-connection",
+      "question": "Is there an extra connection reserved for system processes in MySQL?",
+      "expected": [
+        "docs/products/mysql/concepts/max-number-of-connections.rst"
+      ],
+      "answer_contains": "extra_connection"
+    },
+    {
+      "id": "kafka-auto-create-topics",
+      "question": "Which Kafka advanced parameter controls whether topics are created automatically?",
+      "expected": [
+        "docs/products/kafka/reference/advanced-params.rst",
+        "includes/config-kafka.rst",
+        "docs/products/kafka/howto/create-topics-automatically.rst"
+      ],
+      "answer_contains": "auto_create_topics_enable"
+    },
+    {
+      "id": "kafka-min-insync",
+      "question": "Kafka setting for the minimum number of replicas that must acknowledge a write when acks=all",
+      "expected": [
+        "docs/products/kafka/reference/advanced-params.rst",
+        "includes/config-kafka.rst"
+      ],
+      "answer_contains": "min_insync_replicas"
+    },
+    {
+      "id": "redis-eviction-param",
+      "question": "Which configuration option sets the Redis maxmemory eviction policy?",
+      "expected": [
+        "docs/products/redis/reference/advanced-params.rst",
+        "includes/config-redis.rst",
+        "docs/products/redis/concepts/memory-usage.rst"
+      ],
+      "answer_contains": "maxmemory"
+    },
+    {
+      "id": "mysql-time-zone",
+      "question": "How do I change the default time zone of an Aiven for MySQL service?",
+      "expected": [
+        "docs/products/mysql/reference/advanced-params.rst",
+        "includes/config-mysql.rst"
+      ],
+      "answer_contains": "default_time_zone"
+    },
+    {
+      "id": "pg-backup-hour",
+      "question": "Can I choose at what hour of the day PostgreSQL backups start?",
+      "expected": [
+        "docs/products/postgresql/reference/advanced-params.rst",
+        "docs/products/postgresql/concepts/pg-backups.rst"
+      ],
+      "answer_contains": "backup_hour"
+    },
+    {
+      "id": "pg-admin-username",
+      "question": "What is the default admin username for a new PostgreSQL service?",
+      "expected": [
+        "docs/products/postgresql/reference/advanced-params.rst"
+      ],
+      "answer_contains": "avnadmin"
+    },
+    {
+      "id": "os-flood-stage",
+      "question": "At what disk usage percentage does OpenSearch make indices read-only?",
+      "expected": [
+        "docs/products/opensearch/reference/low-space-watermarks.rst"
+      ],
+      "answer_contains": "95%"
+    },
+    {
+      "id": "os-low-watermark",
+      "question": "Default value of the OpenSearch low disk watermark",
+      "expected": [
+        "docs/products/opensearch/reference/low-space-watermarks.rst"
+      ],
+      "answer_contains": "85%"
+    },
+    {
+      "id": "os-plugins-knn",
+      "question": "Is the k-NN plugin available in Aiven for OpenSearch?",
+      "expected": [
+        "docs/products/opensearch/reference/plugins.rst"
+      ],
+      "answer_contains": "k-NN"
+    },
+    {
+      "id": "clickhouse-backups",
+      "question": "How often does Aiven back up a ClickHouse service, and is point-in-time recovery supported?",
+      "expected": [
+        "docs/products/clickhouse/reference/limitations.rst"
+      ],
+      "answer_contains": "one snapshot a day"
+    },
+    {
+      "id": "clickhouse-integrations",
+      "question": "Which services can Aiven for ClickHouse integrate with?",
+      "expected": [
+        "docs/products/clickhouse/reference/limitations.rst",
+        "docs/products/clickhouse/howto/data-service-integration.rst"
+      ],
+      "answer_contains": "PostgreSQL"
+    },
+    {
+      "id": "clickhouse-log-engine",
+      "question": "Can I use the Log table engine in Aiven ClickHouse?",
+      "expected": [
+        "docs/products/clickhouse/reference/limitations.rst",
+        "docs/products/clickhouse/reference/supported-table-engines.rst"
+      ],
+      "answer_contains": "Log engine"
+    },
+    {
+      "id": "password-min-length",
+      "question": "What is the minimum password length for an Aiven account?",
+      "expected": [
+        "docs/platform/reference/password-policy.rst"
+      ],
+      "answer_contains": "8 characters"
+    },
+    {
+      "id": "powered-off-cleanup",
+      "question": "How long can a service stay powered off before Aiven cleans it up?",
+      "expected": [
+        "docs/platform/concepts/service-power-cycle.rst",
+        "docs/platform/concepts/service_backups.rst"
+      ],
+      "answer_contains": "180"
+    },
+    {
+      "id": "deleted-backups",
+      "question": "After deleting a service, how long are its backups kept?",
+      "expected": [
+        "docs/platform/concepts/service_backups.rst"
+      ],
+      "answer_contains": "41 days"
+    },
+    {
+      "id": "kafka-power-off-data",
+      "question": "Do I lose my Kafka topic data if I power off the service?",
+      "expected": [
+        "docs/platform/concepts/service-power-cycle.rst"
+      ],
+      "answer_contains": "topic data will be lost"
+    },
+    {
+      "id": "free-plan-services",
+      "question": "Which services are offered on the free plan?",
+      "expected": [
+        "docs/platform/concepts/free-plan.rst"
+      ],
+      "answer_contains": "Redis"
+    },
+    {
+      "id": "free-plan-disk",
+      "question": "How much disk storage does a free PostgreSQL plan include?",
+      "expected": [
+        "docs/platform/concepts/free-plan.rst"
+      ],
+      "answer_contains": "5GB"
+    },
+    {
+      "id": "free-trial-credits",
+      "question": "How many credits does the free trial give?",
+      "expected": [
+        "docs/platform/concepts/free-plan.rst",
+        "docs/platform/concepts/free-trial.rst"
+      ],
+      "answer_contains": "$300"
+    },
+    {
+      "id": "token-limit",
+      "question": "What is the maximum number of personal authentication tokens a user can create?",
+      "expected": [
+        "docs/platform/concepts/authentication-tokens.rst"
+      ],
+      "answer_contains": "10"
+    },
+    {
+      "id": "dds-services",
+      "question": "Which services support adding disk storage without changing the plan?",
+      "expected": [
+        "docs/platform/concepts/dynamic-disk-sizing.rst",
+        "docs/platform/howto/add-storage-space.rst"
+      ],
+      "answer_contains": "Dynamic Disk Sizing"
+    },
+    {
+      "id": "pgvector-min-version",
+      "question": "Which PostgreSQL version do I need to use the pgvector extension?",
+      "expected": [
+        "docs/products/postgresql/howto/use-pgvector.rst",
+        "docs/products/postgresql/concepts/pgvector.rst"
+      ],
+      "answer_contains": "13"
+    },
+    {
+      "id": "service-hostname",
+      "question": "What is the format of the hostname Aiven assigns to a new service?",
+      "expected": [
+        "docs/platform/reference/service-ip-address.rst"
+      ],
+      "answer_contains": "aivencloud.com"
+    },
+    {
+      "id": "maintenance-downtime",
+      "question": "How long is the downtime for PostgreSQL during a maintenance upgrade?",
+      "expected": [
+        "docs/platform/concepts/maintenance-window.rst"
+      ],
+      "answer_contains": "several seconds"
+    },
+    {
+      "id": "kafka-oidc-prereqs",
+      "question": "What do I need from my identity provider to set up OAuth2 for Kafka?",
+      "expected": [
+        "docs/products/kafka/howto/enable-oidc.rst"
+      ],
+      "answer_contains": "JWKS"
+    },
+    {
+      "id": "kafka-active-segment",
+      "question": "In Kafka, which segment file do new messages get appended to?",
+      "expected": [
+        "docs/products/kafka/concepts/partition-segments.rst"
+      ],
+      "answer_contains": "active segment"
+    },
+    {
+      "id": "static-ip-cost",
+      "question": "Do static IP addresses cost extra?",
+      "expected": [
+        "docs/platform/howto/static-ip-addresses.rst",
+        "docs/platform/concepts/static-ips.rst"
+      ],
+      "answer_contains": "charge"
+    },
+    {
+      "id": "pg-shared-buffers",
+      "question": "What does the shared_buffers setting control in Aiven PostgreSQL?",
+      "expected": [
+        "docs/products/postgresql/concepts/pg-shared-buffers.rst"
+      ],
+      "answer_contains": "shared_buffers"
+    },
+    {
+      "id": "consumer-lag-predictor",
+      "question": "What do I need to set up before using the Kafka consumer lag predictor?",
+      "expected": [
+        "docs/products/kafka/concepts/consumer-lag-predictor.rst",
+        "docs/products/kafka/howto/enable-consumer-lag-predictor.rst"
+      ],
+      "answer_contains": "Prometheus"
+    }
+  ]
+}
