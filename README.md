@@ -16,6 +16,10 @@ Measured on the full devportal repo (817 files, 3,328 chunks; 32 labeled questio
 **hit@1 0.81, hit@5 1.00, MRR 0.89**, about 0.6 s per search on 4 CPU cores. Details in
 [Retrieval quality](#retrieval-quality) and [docs/slides.md](docs/slides.md).
 
+![Aiven Docs RAG MCP Architecture and Hybrid Retrieval Pipeline](docs/architecture-overview.png)
+
+*(Interactive HTML version: [`docs/architecture-diagram.html`](docs/architecture-diagram.html) · Standalone SVG: [`docs/architecture-diagram.svg`](docs/architecture-diagram.svg))*
+
 ---
 
 ## Quickstart (about 10 minutes, most of it the first build)

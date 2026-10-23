@@ -15,22 +15,11 @@ style: |
 
 # 1. The solution: a local RAG server any MCP client can use
 
-```text
-Claude Code / Desktop ── stdio: docker exec -i aiven-rag-mcp rag-mcp serve ──┐
-Cursor ───────────────── Streamable HTTP: http://localhost:8000/mcp ─────────┤
-                                                                              ▼
-   MCP tools (thin)   search · ingest · list_sources · delete_source   (annotated, structured output)
-   RagService         ingest: load → chunk → embed → upsert   |   search: embed → hybrid → rerank
-   loaders            text · file/dir · URL · git repo (shallow clone, RST include:: expanded)
-   chunking           heading-aware MD + RST, "Title > Section" breadcrumb, ≤400 tokens
-   models (ONNX, CPU) bge-small-en-v1.5 (384-d) + ms-marco-MiniLM-L-6 cross-encoder, baked in image
-   PostgreSQL 16 + pgvector 0.8   HNSW (cosine) + weighted tsvector/GIN, fused with RRF (k=60)
-```
+![w:960 center](architecture-diagram.png)
 
 - **One command:** `docker compose up -d --build`, then `rag-mcp ingest https://github.com/aiven/devportal`.
-- **No API keys and no runtime network:** the models are in the image, data is on a named volume, and the schema is migrated at startup (under an advisory lock, with the model and dimension pinned in the DB).
-- **Idempotent ingest:** content hash per file. Changed files are replaced in one transaction; `--prune` removes deleted ones.
-- **Cursor support:** `.cursor/mcp.json`, a rule that makes the agent search, cite and admit misses, a one-click install link, and `AGENTS.md`.
+- **No API keys and no runtime network:** local ONNX models (`bge-small-en-v1.5` + `ms-marco-MiniLM-L-6-v2`) are baked into the image, data lives on a named volume, and migrations run under a Postgres advisory lock with model/dimension pinning.
+- **Idempotent ingest & Cursor-ready:** SHA-256 per file (atomic replace, `--prune`), plus `.cursor/mcp.json`, rules, and `AGENTS.md`.
 
 ---
 
